@@ -1,11 +1,22 @@
-import express from 'express'
+import express, { Request, Response} from 'express'
+import mongoose from 'mongoose';
+import { config } from 'dotenv'
+import Deck from "./models/Deck"
+config();
 const app = express()
 const port = 3000
+app.use(express.json())
 
-app.get('/', (req, res) => {
-  res.send('Hello World!')
+
+app.post('/decks', async (req: Request, res: Response) => {
+    const newDeck = new Deck({
+    title: req.body.title
+  })
+  const createdDecl = await newDeck.save()
+  res.json(createdDecl)
 })
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
+mongoose.connect(process.env.MONGO_URL!).then(() => {
+    console.log(`Example app listening on port ${port}`)
+    app.listen(port)
 })
