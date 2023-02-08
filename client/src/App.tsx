@@ -37,7 +37,9 @@ function App() {
                         <button onClick={() => handleDeleteDeck(deck._id)}>
                             X
                         </button>
-                        <Link to={`decks/${deck._id}`}>{deck.title}</Link>
+                        <Link className='Linker' to={`decks/${deck._id}`}>
+                            {deck.title}
+                        </Link>
                     </li>
                 ))}
             </div>

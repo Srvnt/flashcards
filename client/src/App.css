@@ -42,3 +42,12 @@
     top: 5px;
     right: 5px;
 }
+
+.button-create {
+    background-color: rgb(223, 223, 223);
+}
+
+.Linker,
+.Linker:hover {
+    color: black;
+}

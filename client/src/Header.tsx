@@ -1,16 +1,12 @@
 import "./Header.css";
+import logo from "./assets/logo_transparent.png";
 
 export function Header() {
     return (
         <div className='Header'>
-            <a href='/' className='logo'>
-                LOGO
-            </a>
+            <img className='image' src={logo} alt='logo' />
             <div className='decks1'>
                 <a href='/'>Decks</a>
-            </div>
-            <div className='login'>
-                <a href='/login'>LOGIN</a>
             </div>
         </div>
     );
